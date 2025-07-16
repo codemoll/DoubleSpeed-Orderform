@@ -1,0 +1,66 @@
+# Tailwind Modern Order Form - Git Ignore
+# Exclude temporary and build files
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+error.log
+access.log
+
+# Cache files
+*.cache
+cache/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Development files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Node modules (if any development tools are added)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+dist/
+build/
+public/
+
+# Coverage reports
+coverage/
+
+# Dependency directories
+vendor/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
