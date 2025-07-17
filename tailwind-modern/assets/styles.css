@@ -1,0 +1,444 @@
+/**
+ * Tailwind Modern Order Form - Custom CSS
+ * Additional styles and animations not covered by Tailwind utilities
+ */
+
+/* Custom properties for consistent theming */
+:root {
+    --ds-green: #00ff88;
+    --ds-blue: #0066ff;
+    --ds-purple: #8800ff;
+    --gray-950: #0a0a0a;
+    --gray-925: #141414;
+    --gray-850: #1f1f1f;
+}
+
+/* Base improvements */
+* {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-850);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+}
+
+/* Focus styles for better accessibility */
+.focus-visible:focus {
+    outline: 2px solid var(--ds-blue);
+    outline-offset: 2px;
+}
+
+/* Custom button hover effects */
+.btn-gradient {
+    background: linear-gradient(135deg, var(--ds-green), var(--ds-blue));
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(135deg, var(--ds-blue), var(--ds-purple));
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading spinner improvements */
+.spinner-glow {
+    animation: spinnerGlow 2s linear infinite;
+}
+
+@keyframes spinnerGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(0, 255, 136, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 136, 0);
+    }
+}
+
+/* Form enhancements */
+.form-input {
+    transition: all 0.2s ease;
+}
+
+.form-input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.15);
+}
+
+/* Custom radio and checkbox styles */
+.radio-custom {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4b5563;
+    border-radius: 50%;
+    background: #1f2937;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.radio-custom:checked {
+    border-color: var(--ds-blue);
+    background: var(--ds-blue);
+}
+
+.radio-custom:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.checkbox-custom {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4b5563;
+    border-radius: 4px;
+    background: #1f2937;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.checkbox-custom:checked {
+    border-color: var(--ds-green);
+    background: var(--ds-green);
+}
+
+.checkbox-custom:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0a0a0a;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Progress bar enhancements */
+.progress-glow {
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+/* Domain search result animations */
+.domain-result {
+    animation: slideInUp 0.3s ease-out;
+}
+
+.domain-result:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.domain-result:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Alert animations */
+.alert-enter {
+    animation: alertSlideIn 0.4s ease-out;
+}
+
+.alert-exit {
+    animation: alertSlideOut 0.3s ease-in;
+}
+
+@keyframes alertSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes alertSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* Skeleton loading improvements */
+.skeleton {
+    background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Mobile improvements */
+@media (max-width: 768px) {
+    .mobile-optimized {
+        padding: 1rem;
+    }
+    
+    .mobile-text {
+        font-size: 0.875rem;
+    }
+    
+    .mobile-button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --ds-green: #00ff00;
+        --ds-blue: #0066ff;
+        --ds-purple: #ff00ff;
+    }
+    
+    .border-gray-600 {
+        border-color: #ffffff;
+    }
+    
+    .bg-gray-800 {
+        background-color: #000000;
+    }
+    
+    .text-gray-400 {
+        color: #ffffff;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .animate-spin {
+        animation: none;
+    }
+    
+    .animate-pulse {
+        animation: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    .print-only {
+        display: block !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .bg-gray-900,
+    .bg-gray-800 {
+        background: white !important;
+        border: 1px solid #ccc !important;
+    }
+    
+    .text-white {
+        color: black !important;
+    }
+    
+    .text-ds-green,
+    .text-ds-blue,
+    .text-ds-purple {
+        color: black !important;
+    }
+}
+
+/* Custom utility classes */
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+}
+
+.gradient-border {
+    border-image: linear-gradient(135deg, var(--ds-green), var(--ds-blue)) 1;
+}
+
+.glass-effect {
+    background: rgba(31, 41, 55, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom focus indicators for better accessibility */
+.focus-ring {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.focus-ring:focus {
+    outline: 2px solid var(--ds-blue);
+    outline-offset: 2px;
+}
+
+/* Loading state improvements */
+.loading-overlay {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+/* Improved button states */
+.btn-primary {
+    background: linear-gradient(135deg, var(--ds-green), var(--ds-blue));
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--ds-blue), var(--ds-purple));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 255, 136, 0.2);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Form validation styles */
+.field-valid {
+    border-color: var(--ds-green);
+    box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.1);
+}
+
+.field-invalid {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.1);
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1f2937;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 1000;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Custom scrollbar for webkit browsers */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--gray-850);
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+/* Enhanced card styles */
+.enhanced-card {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 0.9));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(107, 114, 128, 0.2);
+    transition: all 0.3s ease;
+}
+
+.enhanced-card:hover {
+    border-color: rgba(0, 255, 136, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
